@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BreakCheck: API Change Impact Mapper | Harsheel Kumar Sahoo</title>
+<meta name="description" content="BreakCheck compares two versions of an API and shows which teams and apps would break before you release, with a clear ship / don't-ship verdict and a to-do list for each team.">
+<meta property="og:title" content="BreakCheck: API Change Impact Mapper">
+<meta property="og:description" content="BreakCheck compares two versions of an API and shows which teams and apps would break before you release, with a clear ship / don't-ship verdict and a to-do list for each team.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://harsheel.vercel.app/assets/breakcheck/poster.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="BreakCheck poster: an impact matrix showing which consumers break, with a Do not ship verdict.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.player{width:100%;max-width:960px;aspect-ratio:16/9;border-radius:12px;background:#000;display:block}
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.doc{display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.doc h3{margin:0 0 4px;font-size:1.15rem}.doc p{margin:0}
+.dl{margin:14px 0 0;font-size:.95rem}
+</style>
+<script src="../assets/js/site.js"></script>
+</head>
+<body>
+<header id="site-header" class="site"></header>
+<main class="wrap">
+<div class="ph"><a class="back" href="../projects.html">← All projects</a><p class="eyebrow">Project · Oct 2026 · NEXUS UNCHARTED Hackathon</p><h1>BreakCheck: API Change Impact Mapper</h1>
+<p class="lead">If I ship this API version, who breaks?</p></div>
+<img class="hero-img" src="../assets/breakcheck/poster.jpg" alt="BreakCheck poster: an impact matrix showing which consumers break, with a Do not ship verdict." width="1200" height="627">
+<div class="row" style="margin-top:22px;margin-bottom:clamp(36px,6vw,64px)"><a class="btn primary" href="https://breakcheck-live.vercel.app/" target="_blank" rel="noopener noreferrer" data-icon="globe">Try the live demo</a><a class="btn" href="https://github.com/Harsheel-Kumar-Sahoo/BreakCheck" target="_blank" rel="noopener noreferrer" data-icon="github">View source on GitHub</a></div>
+<section class="s split"><div><p class="eyebrow">About the project</p><h2>Who depends on the change?</h2></div><div class="prose">
+<p>When an API changes, a normal diff tool shows what changed but not who depends on it. Breakages are found after release and fixed in a panic. BreakCheck compares two OpenAPI spec versions, classifies every change as breaking, risky or safe, and maps each one to the real consumers that use that endpoint or field. It then gives a verdict (Do not ship, Ship with caution or Safe to ship) and a migration to-do list per team. It is deterministic, with no AI model involved, so the same input always gives the same answer.</p>
+<h3>Key features</h3><ul><li>Change classification: breaking, risky or safe</li><li>Consumer impact matrix: only teams that really use the change are flagged</li><li>Ship verdict and per-team migration tasks</li><li>Risk ranking and release trend over time</li><li>Live activity feed, Markdown export and PR-comment summary</li><li>Command-line tool with exit codes for CI pipelines</li></ul>
+<ul class="chips"><li>MongoDB Atlas</li><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>Recharts</li><li>OpenAPI</li><li>Vercel</li></ul></div></section>
+<section class="s"><p class="eyebrow">Video</p><h2>Watch the demo</h2>
+<video class="player" controls preload="metadata" playsinline poster="../assets/breakcheck/poster.jpg"><source src="../assets/breakcheck/BreakCheck_Demo.mp4" type="video/mp4">Your browser cannot play this video. <a href="../assets/breakcheck/BreakCheck_Demo.mp4">Download the video</a>.</video>
+<p class="dl muted"><a href="../assets/breakcheck/BreakCheck_Demo.mp4" download>Download the video (10.6 MB)</a></p></section>
+<section class="s"><p class="eyebrow">Documents</p><h2>Read more</h2><div class="docs">
+<div class="doc"><div><h3>Slides</h3><p class="muted">PDF · 1.3 MB</p></div><div class="row"><a class="btn primary" href="../assets/breakcheck/BreakCheck_Presentation.pdf" download>Download</a><a class="btn" href="../assets/breakcheck/BreakCheck_Presentation.pdf" target="_blank" rel="noopener noreferrer">Open in new tab</a></div></div>
+<div class="doc"><div><h3>Project overview</h3><p class="muted">PDF · 121 KB</p></div><div class="row"><a class="btn primary" href="../assets/breakcheck/BreakCheck_Project_Overview.pdf" download>Download</a><a class="btn" href="../assets/breakcheck/BreakCheck_Project_Overview.pdf" target="_blank" rel="noopener noreferrer">Open in new tab</a></div></div>
+<div class="doc"><div><h3>How to access and run it</h3><p class="muted">PDF · 121 KB</p></div><div class="row"><a class="btn primary" href="../assets/breakcheck/BreakCheck_Access_Instructions.pdf" download>Download</a><a class="btn" href="../assets/breakcheck/BreakCheck_Access_Instructions.pdf" target="_blank" rel="noopener noreferrer">Open in new tab</a></div></div>
+</div></section>
+<section class="s"><p class="note">Built by Team Almost Avengers (Harsheel Kumar Sahoo, Dhruv Papaiya, Tanishka Jethani), SVNIT Surat, for the NEXUS UNCHARTED MongoDB Student Hackathon, Track 3: Developer Tools for Production Use Cases.</p></section>
+<section class="s pager"><a class="btn" href="distancing-belt.html">← Smart Social Distancing Belt</a><a class="btn" href="kreedex.html">Kreedex →</a></section>
+</main>
+<footer id="site-footer" class="foot"></footer>
+</body>
+</html>
