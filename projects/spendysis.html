@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spendysis: Personal Expense Tracker | Harsheel Kumar Sahoo</title>
+<meta name="description" content="Spendysis (Spend + Analysis) is a modern expense tracker with accounts, payment-method tracking and designed PDF reports. It works as an installable app on Android, iPhone and desktop.">
+<meta property="og:title" content="Spendysis: Personal Expense Tracker">
+<meta property="og:description" content="Spendysis (Spend + Analysis) is a modern expense tracker with accounts, payment-method tracking and designed PDF reports. It works as an installable app on Android, iPhone and desktop.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://harsheel.vercel.app/assets/img/spendysis-poster.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Spendysis poster: a personal expense tracker app showing monthly spending and payment-method split on a phone.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.gallery.shots{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));align-items:start}
+.gallery.shots img{aspect-ratio:auto;object-fit:contain;height:auto}
+</style>
+<script src="../assets/js/site.js"></script>
+</head>
+<body>
+<header id="site-header" class="site"></header>
+<main class="wrap">
+<div class="ph"><a class="back" href="../projects.html">← All projects</a><p class="eyebrow">Project · Nov 2026 · Full-stack web app</p><h1>Spendysis</h1>
+<p class="lead">Spend + Analysis: a modern expense tracker with accounts, payment-method tracking and designed PDF reports.</p></div>
+<img class="hero-img" src="../assets/img/spendysis-poster.jpg" alt="Spendysis poster: a personal expense tracker app showing monthly spending and payment-method split on a phone." width="1200" height="600">
+<div class="row" style="margin-top:22px;margin-bottom:clamp(36px,6vw,64px)"><a class="btn primary" href="https://spendysis.vercel.app" target="_blank" rel="noopener noreferrer" data-icon="globe">Try the live app</a><a class="btn" href="https://github.com/Harsheel-Kumar-Sahoo/spendysis" target="_blank" rel="noopener noreferrer" data-icon="github">View source on GitHub</a></div>
+<section class="s split"><div><p class="eyebrow">About the project</p><h2>See where your money goes.</h2></div><div class="prose">
+<p>Spendysis helps you see where your money goes each month. You log every expense with how you paid (UPI, cash, card or any other method), then view clear totals, a payment-method split and a downloadable PDF report. It works as an installable app on Android, iPhone and desktop.</p>
+<h3>Key features</h3><ul><li><b>Accounts for multiple people:</b> sign up and sign in with email and password, and every user only sees their own data.</li><li><b>Track by payment method:</b> UPI, Cash, Card, or Other (you type the method, for example net banking or cheque).</li><li><b>Monthly view:</b> switch between months and see the total, a colour-coded split bar and per-method percentages.</li><li><b>Filter and edit:</b> filter the list by payment method, edit any expense, and delete with a two-tap confirmation.</li><li><b>PDF report:</b> export a designed report for one month or all time, with six key statistics, a payment-method breakdown, a spending chart, the top 5 expenses and every transaction.</li><li><b>Light, dark and auto themes.</b> The light theme matches the PDF report's colour scheme.</li><li><b>Installable PWA:</b> install it from the browser on Android, iPhone and desktop, with an in-app install button.</li><li><b>Responsive and mobile-first.</b></li></ul></div></section>
+<section class="s"><p class="eyebrow">Screens</p><h2>Light, dark and the PDF report</h2>
+<div class="gallery shots"><figure><img src="../assets/img/spendysis-light.webp" alt="Spendysis home screen in the light theme, showing the month total and payment-method split" loading="lazy" width="600" height="1204"><figcaption>Home, light theme</figcaption></figure><figure><img src="../assets/img/spendysis-dark.webp" alt="Spendysis home screen in the dark theme" loading="lazy" width="600" height="1204"><figcaption>Home, dark theme</figcaption></figure><figure><img src="../assets/img/spendysis-report.webp" alt="Spendysis PDF report with key statistics, payment methods, monthly spending chart and top expenses" loading="lazy" width="600" height="1204"><figcaption>Exported PDF report</figcaption></figure></div></section>
+<section class="s"><p class="eyebrow">Technology</p><h2>Tech stack</h2><div class="spec"><div><b>Frontend</b><span>Vanilla HTML, CSS and JavaScript (single page, no build step)</span></div><div><b>Backend</b><span>Node.js 22, Express 4</span></div><div><b>Database</b><span>MongoDB Atlas with Mongoose</span></div><div><b>Auth</b><span>JWT (30-day tokens) and bcrypt password hashing</span></div><div><b>PDF export</b><span>html2canvas and jsPDF, loaded on demand</span></div><div><b>Hosting</b><span>Vercel (Express runs as a serverless function)</span></div><div><b>PWA</b><span>Web app manifest and a service worker</span></div></div></section>
+<section class="s"><p class="eyebrow">Security</p><h2>Built with privacy in mind</h2><div class="prose"><ul><li>Passwords are hashed with bcrypt and never stored or exported in plain text.</li><li>Login and register routes are rate limited.</li><li>Every query is filtered by the signed-in user's ID, so users cannot see each other's data.</li></ul></div></section>
+<section class="s pager"><a class="btn" href="distancing-belt.html">← Smart Social Distancing Belt</a><a class="btn" href="breakcheck.html">BreakCheck →</a></section>
+</main>
+<footer id="site-footer" class="foot"></footer>
+</body>
+</html>
