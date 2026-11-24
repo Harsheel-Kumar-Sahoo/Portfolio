@@ -41,7 +41,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px}
 .card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:.25s}
 .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(15,27,45,.45);border-color:var(--accent)}
-.card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--bg2)}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--bg2)}
 .card-b{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
 .card-b p{margin:0;color:var(--muted);font-size:.98rem}
 .card-b .eyebrow{margin-bottom:4px}
