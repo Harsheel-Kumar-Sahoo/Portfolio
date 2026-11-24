@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MuleNet-Graph: UPI Mule-Ring Detection | Harsheel Kumar Sahoo</title>
+<meta name="description" content="MuleNet-Graph detects UPI mule-account rings in real time using streaming graph neural networks. A research prototype for the GIFT FutureLab Grand Challenge 2026-27, built on synthetic data.">
+<meta property="og:title" content="MuleNet-Graph: UPI Mule-Ring Detection | Harsheel Kumar Sahoo">
+<meta property="og:description" content="MuleNet-Graph detects UPI mule-account rings in real time using streaming graph neural networks. A research prototype for the GIFT FutureLab Grand Challenge 2026-27, built on synthetic data.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://harsheel.vercel.app/assets/img/mulenet-graph-poster.webp">
+<meta property="og:image:width" content="1672">
+<meta property="og:image:height" content="941">
+<meta property="og:image:alt" content="MuleNet-Graph poster: real-time detection of UPI mule-account rings using graph neural networks">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/site.js"></script>
+</head>
+<body>
+<header id="site-header" class="site"></header>
+<main class="wrap">
+<div class="ph"><a class="back" href="../projects.html">← All projects</a><p class="eyebrow">Project · Nov 2026 · GIFT FutureLab Grand Challenge 2026-27</p><h1>MuleNet-Graph</h1>
+<p class="lead">Real-time detection of UPI mule-account rings using streaming graph neural networks.</p><dl class="meta"><div><dt>Event</dt><dd>GIFT FutureLab Grand Challenge 2026-27</dd></div><div><dt>Focus area</dt><dd>Cybersecurity, fraud prevention and risk management</dd></div><div><dt>Role</dt><dd>Team lead</dd></div><div><dt>Stage</dt><dd>Prototype, tested on synthetic data</dd></div></dl></div>
+<img class="hero-img" src="../assets/img/mulenet-graph-poster.webp" alt="MuleNet-Graph poster: real-time detection of UPI mule-account rings using graph neural networks" width="1672" height="941">
+<div class="row" style="margin-top:22px;margin-bottom:clamp(36px,6vw,64px)"><a class="btn primary" href="https://mulenet-graph.vercel.app/" target="_blank" rel="noopener noreferrer" data-icon="globe">Try the live prototype</a><a class="btn" href="https://github.com/Harsheel-Kumar-Sahoo/mulenet-graph" target="_blank" rel="noopener noreferrer" data-icon="github">View source on GitHub</a></div>
+<section class="s split"><div><p class="eyebrow">About the project</p><h2>Follow the money, not just the account.</h2></div><div class="prose">
+<p>Instant payment systems such as UPI settle in seconds and cannot easily be reversed. Fraudsters use this by moving stolen money through chains of &ldquo;mule&rdquo; accounts, often held by ordinary people who lend or sell their accounts, before it is cashed out. By the time a victim reports the fraud, the money has usually moved on.</p>
+<p>Most detection looks at one account or one transaction at a time, but mule activity shows up in the network: money fanning out to many accounts, converging again, or circling back, with very short gaps between receiving and forwarding. Rules strict enough to catch this also fire on legitimate behaviour such as shopkeepers receiving many payments, salary payouts, rent collection and group expense splits. MuleNet-Graph looks at the shape of the money flow instead.</p></div></section>
+<section class="s split"><div><p class="eyebrow">Approach</p><h2>How it works</h2></div><div class="prose"><ul>
+<li><b>Rolling graph:</b> payments stream into a graph of accounts and transfers covering the last ten minutes.</li>
+<li><b>Local neighbourhood:</b> for each new transaction, a small bounded neighbourhood around the accounts involved is extracted.</li>
+<li><b>Structure and speed features:</b> fan-out, fan-in, circular flow, pass-through ratio and the gap between receiving and forwarding money.</li>
+<li><b>Scoring:</b> a graph neural network (GraphSAGE or GAT) is designed to score the neighbourhood. Until it is trained, the system runs a graph-based heuristic stand-in, and the dashboard says so.</li>
+<li><b>Graded response:</b> monitor, flag, hold outgoing transfers, or freeze and escalate to a human reviewer. Final decisions stay with people.</li>
+<li><b>Explanation:</b> each alert shows the rules that fired, the node&rsquo;s features, and which transfers most changed its score when removed.</li></ul></div></section>
+<section class="s"><p class="eyebrow">System</p><h2>Components</h2><div class="spec"><div><b>Synthetic data generator</b><span>Normal traffic, injectable mule rings (fan-out, fan-in, circular) and hard negatives such as shopkeepers, salary, rent, group splits and friend settlements.</span></div><div><b>Graph and features</b><span>Rolling NetworkX graph, bounded k-hop extraction, velocity and structure features.</span></div><div><b>Baselines</b><span>Single-account rules and a graph-based heuristic, used for comparison.</span></div><div><b>Streaming backend</b><span>In-process queue and state store (Kafka and Redis optional), decision engine, FastAPI REST and WebSocket.</span></div><div><b>Dashboard</b><span>React and Cytoscape.js: live graph, attack launcher, threshold sliders, event log and explanation panel.</span></div></div></section>
+<section class="s"><p class="eyebrow">Results so far</p><h2>Synthetic data only</h2>
+<p class="muted">Offline replay, default configuration, seed 42. &ldquo;Hard-negative FPR&rdquo; is the share of legitimate look-alike scenarios in which at least one account was alerted.</p>
+<div class="spec"><div><b>Single-account rules</b><span>Precision 0.87 · Recall 0.61 · F1 0.72 · Hard-negative FPR 0.33</span></div><div><b>Graph heuristic</b><span>Precision 0.98 · Recall 0.83 · F1 0.90 · Hard-negative FPR 0.03</span></div><div><b>Graph neural network</b><span>Implemented, not yet trained or benchmarked. No accuracy claim is made.</span></div></div>
+<p style="margin-top:18px">Single-account rules false-alarmed on every salary scenario and 62% of shopkeeper scenarios. The graph heuristic false-alarmed on 12% of salary scenarios and none of the shopkeeper ones. Both caught all injected rings before cash-out in this replay, with a median delay of about 24 to 27 simulated seconds.</p></section>
+<section class="s"><p class="eyebrow">Technology</p><h2>Built with</h2><ul class="chips"><li>Python</li><li>FastAPI</li><li>NetworkX</li><li>GraphSAGE / GAT</li><li>WebSocket</li><li>React</li><li>Cytoscape.js</li><li>Kafka and Redis (optional)</li><li>Vercel</li></ul></section>
+<section class="s"><p class="eyebrow">Documents</p><h2>Read more</h2><div class="docs"><div class="doc"><div><h3>Supporting document</h3><p class="muted">PDF · 321 KB</p></div><div class="row"><a class="btn primary" href="../assets/mulenet/MuleNet-Graph_Supporting_Document.pdf" download>Download</a><a class="btn" href="../assets/mulenet/MuleNet-Graph_Supporting_Document.pdf" target="_blank" rel="noopener noreferrer">Open in new tab</a></div></div></div></section>
+<section class="s"><p class="note"><b>Honest status:</b> this is a research prototype built and tested entirely on synthetic data, so results are likely optimistic. The graph neural network has not been trained, and the 50 ms latency goal is unverified. It is meant to complement existing tools such as MuleHunter.AI, FRI and the I4C Suspect Registry, not replace them. Flagged accounts are risk nodes for human review, not accusations. If the live demo shows &ldquo;disconnected&rdquo;, wait about a minute for the backend to wake up and refresh the page.</p></section>
+<section class="s"><p class="eyebrow">Next steps</p><h2>What comes next</h2><div class="prose"><ul><li>Train and benchmark the graph neural network against the baselines, and measure real inference latency.</li><li>Add harder test data: slower, adaptive rings and more legitimate look-alikes.</li><li>Validate on privacy-protected transaction data through an institutional partner.</li><li>Test explanations and the review workflow with fraud analysts.</li><li>Run a monitor-only pilot before any account restrictions are enabled.</li></ul></div></section>
+<section class="s pager"><a class="btn" href="distancing-belt.html">← Smart Social Distancing Belt</a><a class="btn" href="wiselyfin-plus.html">WiselyFin Plus →</a></section>
+</main>
+<footer id="site-footer" class="foot"></footer>
+</body>
+</html>
